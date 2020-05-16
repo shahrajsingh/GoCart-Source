@@ -1,0 +1,75 @@
+#grad {
+  height: 640px;
+  background-color: #161618;
+  background-image: linear-gradient(#161618, white);
+  padding: 1rem;
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 28px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+}
+p{
+  color: white;
+  text-align: right;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+#c1{
+  border: 2px solid red;
+
+}
+#r1{
+  border: 2px solid green;
+}
+
+#r2{
+  border: 2px solid blue;
+}
+
+img{
+  height: 360px;
+}
+.productcard{
+  border: 0.25rem solid white;
+  max-width: 400px;
+  max-height: 600px;
+
+
+}
+
+button{
+
+  width: 100%;
+  height: 3rem;
+}
+#cardp{
+  color: black;
+  text-align: left;
+}
+mat-form-field{
+  width: 100%;
+}
+#brand{
+  font-family: Arial;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+}
+hr{
+  border: 1px solid white;
+  background-color: white;
+}
+#pdhr{
+  border: 1px solid black;
+  background-color: black;
+}

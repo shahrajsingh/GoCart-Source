@@ -1,0 +1,33 @@
+
+<div class="container-fluid" id="grad">
+  <br>
+  <div class="row d-flex justify-content-center">
+    <a id="brand" [routerLink]="['/']">GoCart.com</a>
+    </div>
+    <br>
+    <div class="row d-flex justify-content-center">
+      <mat-card class="col-md-4 col-xs-4 col-xl-4 mr-2 ml-2" id="card">
+        <p class="h3">Login</p>
+        <form #loginform = "ngForm" name="loginform" (submit)="login(loginform)">
+          <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>Enter Email</mat-label>
+            <input matInput placeholder="e.g:-someone@email.com" type="email" required name="email" ngModel #email = "ngModel">
+            <mat-error *ngIf="email.invalid">enter a valid email</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Enter Password</mat-label>
+            <input matInput placeholder="********" name="password" #password="ngModel" ngModel required type="password">
+            <mat-error *ngIf="password.invalid">enter a valid password</mat-error>
+          </mat-form-field>
+          <br>
+          <div class="d-flex justify-content-center">
+            <button mat-raised-button type="submit" color="accent">Login</button>
+          </div>
+        </form>
+        <hr>
+        <p class="h6">New to GoCart ?</p>
+        <button mat-raised-button [routerLink]="['/signup']">Create GoCart Account</button>
+      </mat-card>
+    </div>
+</div>

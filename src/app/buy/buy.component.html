@@ -1,0 +1,78 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container-fluid" id="grad">
+  <div class="row d-flex justify-content-center">
+    <a id="brand" [routerLink]="['/']">GoCart.com</a>
+    </div>
+    <hr>
+  <div class="row">
+    <div class="col-md-4 col-xs-4 col-xl-4 ">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-11 col-xs-11 col-xl-11 " style="padding: 0px;">
+          <p>Product</p>
+        </div>
+        <div class="col-md-1 col-xs-1 col-xl-1" style="padding: 0px;">
+          <p class="material-icons">expand_more</p>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <mat-card class="productcard">
+          <mat-card-title>
+            <mat-card-title>{{product.name}}</mat-card-title>
+          </mat-card-title><hr id="pdhr">
+          <img mat-card-image [src]="product.image" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p id="cardp">
+              {{product.discription}}
+            </p>
+          </mat-card-content>
+
+          <mat-card-title>Rs.{{product.price}}</mat-card-title>
+
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4 col-xs-4 col-xl-4">
+      <div class="row">
+        <div class="col-md-11 col-xs-11 col-xl-11" style="padding: 0px;">
+          <p>Delivery Address</p>
+        </div>
+        <div class="col-md-1 col-xs-1 col-xl-1" style="padding: 0px;">
+          <p class="material-icons">expand_more</p>
+        </div>
+      </div>
+      <div class="row row d-flex justify-content-center">
+        <mat-card class="productcard">
+          <form #address = "ngForm" >
+            <mat-form-field appearance="outline">
+              <mat-label>Address Line 1</mat-label>
+              <input matInput name="Address1" ngModel #Address1="ngModel" required placeholder="e.g:-street 1,city,">
+              <mat-error *ngIf="Address1.invalid">Please Enter Correct Address</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Address Line 2</mat-label>
+              <input matInput name="Address2" ngModel #Address2="ngModel" required placeholder="e.g:-state, pincode,">
+              <mat-error *ngIf="Address2.invalid">Please Enter Correct Address</mat-error>
+            </mat-form-field>
+          </form>
+
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4 col-xs-4 col-xl-4">
+      <div class="row">
+        <div class="col-md-11 col-xs-11 col-xl-11" style="padding: 0px;">
+          <p>Order</p>
+        </div>
+        <div class="col-md-1 col-xs-1 col-xl-1" style="padding: 0px;">
+          <p class="material-icons">expand_more</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="h2">Cart Total:&nbsp;Rs.{{product.price}}</p>
+        <button mat-raised-button color="accent" (click)="placeorder()">Place Order</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,34 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<nav class="navbar navbar-expand-sm navbar-dark sticky-top" id="nav">
+  <div class="container-fluid">
+    <div class="col-md-3 col-xs-3 col-xl-3" id="brand">
+      <button class="navbar-brand" mat-button (click)="home()">GoCart.com</button>
+    </div>
+    <div class="col-md-6 col-xs-6 col-xl-6 mt-1 mb-1" id="form">
+      <form class="form-inline" #search="ngForm" (submit)="searchquery(search)">
+        <input class="form-control" type="search" ngModel name="searchProduct" required placeholder="Search">
+        <button class="btn btn-warning material-icons">search</button>
+      </form>
+    </div>
+    <div class="col-md-3 col-xs-3 col-xl-3 mt-1 mb-1 d-flex justify-content-end" id="btndiv">
+      <button mat-raised-button *ngIf="isauthenticated" class="material-icons nav-link dropdown-toggle" id="dropdown"
+        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="material-icons" id="mico">account_box</span>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdown">
+        <a class="dropdown-item" [routerLink]="['/signup',userId]">Account</a>
+        <a class="dropdown-item" routerLink="/orders">Orders</a>
+        <a class="dropdown-item" routerLink="/create">Sell</a>
+        <a class="dropdown-item" [routerLink]="['/list',userId]">Manage you Products</a>
+        <button class="dropdown-item" mat-raised-button color="accent" style="margin-left: 10px;width: 90%"
+          (click)="logout()">Logout</button>
+      </div>
+      <button mat-raised-button color="accent" *ngIf="!isauthenticated" routerLink="/login">Login</button>
+      <button mat-raised-button color="accent" *ngIf="items <= 0" routerLink="/cart"><span
+          class="material-icons">shopping_cart</span>Cart</button>
+      <button mat-raised-button color="accent" *ngIf="items > 0"routerLink="/cart"><span class="material-icons">shopping_cart</span>Cart
+        {{items}}</button>
+    </div>
+  </div>
+</nav>

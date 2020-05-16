@@ -1,0 +1,112 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<app-header></app-header>
+<div *ngIf="mode === 'details'">
+  <div id="grad1">
+    <div class="mr-1 ml-1">
+      <mat-spinner *ngIf="isLoading" id="spin"></mat-spinner>
+
+      <div class="container-fluid" id="cont">
+        <div class="row" *ngFor="let product of products">
+          <div class="col-md-1 col-xs-1 col-xl-1">
+
+          </div>
+          <div class="col-xs-5 col-xl-5 col-md-5 ">
+            <mat-card>
+              <img mat-card-image [src]="product.image" alt="photo" style="width: 100%;">
+              <mat-card-actions>
+
+              </mat-card-actions>
+            </mat-card>
+          </div>
+          <div class="col-md-6 col-xs-6 xol-xl-6">
+            <mat-card>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <td>{{product.name}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Discription</th>
+                    <td>{{product.discription}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Seller Name</th>
+                    <td>{{product.sellername}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Price</th>
+                    <td style="font-size: 18px;">Rs.{{product.price}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-card><br>
+            <div class="row">
+              <div class="col-md-6 col-xs-6 col-xl-6 mt-2">
+                <button mat-raised-button id="btn1" (click)="addtocart(product)">Add to Cart</button>
+              </div>
+              <div class="col-md-6 col-xs-6 col-xl-6 mt-2">
+                <button mat-raised-button id="btn2" (click)="buy()" [routerLink]="['/cart',product._id]">Buy
+                  Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="grad" *ngIf="mode ==='list' || mode === 'listspec'">
+  <div class="mr-1 ml-1">
+    <mat-spinner *ngIf="isLoading" id="spin"></mat-spinner>
+    <br>
+    <p class="h6 d-flex justify-content-center" *ngIf="products.length <= 0">No Products Added Yet!!!</p>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 col-xs-3 col-xl-3" *ngFor="let product of products">
+          <mat-card class="productcard">
+
+            <mat-card-title>
+              {{product.name}}
+            </mat-card-title>
+            <hr style="background: white;">
+
+            <div class="cont d-flex justify-content-center">
+              <img mat-card-image [src]="product.image" alt="Avatar" class="ima">
+              <div class="mid">
+                <a [routerLink]="['/details',product._id]" class="te">Details</a>
+              </div>
+            </div>
+            <mat-card-title id="price">
+              Rs.{{product.price}}
+            </mat-card-title>
+            <mat-card-actions>
+
+              <div class="row">
+                <div class="col-md-6 col-xl-6 col-xs-6 d-flex justify-content-center mt-1">
+                  <button mat-raised-button class="btn btn-outline-warning material-icons" id="cart" (click)="addtocart(product)"
+                    *ngIf='mode === "list"'>add_shopping_cart</button>
+                  <button mat-raised-button id="cart" [routerLink]="['/edit',product._id]"
+                    *ngIf='mode === "listspec"'>Edit</button>
+                </div>
+
+                <div class="col-md-6 col-xl-6 col-xs-6 d-flex justify-content-center mt-1">
+                  <button mat-raised-button id="buy" *ngIf='mode === "list"'
+                    [routerLink]="['/cart',product._id]">Buy Now</button>
+                  <button mat-raised-button id="delete" (click)="delete(product._id)"
+                    *ngIf='mode === "listspec"'>Delete</button>
+                </div>
+              </div>
+            </mat-card-actions>
+          </mat-card>
+          <br>
+        </div>
+      </div>
+      <footer class="footer">
+        <mat-paginator [length]="totalproducts" [pageSize]="postsperpage" [pageSizeOptions]="pagesizeoptions"
+          (page)="onchangepage($event)" *ngIf="products.length > 0" id="paginater"></mat-paginator>
+      </footer>
+    </div>
+  </div>
+</div>

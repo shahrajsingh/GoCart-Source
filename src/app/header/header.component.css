@@ -1,0 +1,55 @@
+#form input{
+  height: auto;
+  border-radius: 4px;
+  width: 90%;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+#form button{
+  width: 10%;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  float: left;
+}
+#btndiv button{
+  width: 100px;
+  margin-left: 1rem;
+  height: 38px;
+  float: left;
+  background-color: #ffc107;
+}
+#brand{
+  text-align: center;
+  color: white;
+}
+#brand a{
+  color: white;
+}
+#mico{
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 36px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+.dropdown-menu a{
+  text-align: center;
+}
+
+#form{
+  padding: 0px;
+
+}
+#btndiv{
+  padding: 0px;
+}
+#nav{
+  background-color: black;
+
+}

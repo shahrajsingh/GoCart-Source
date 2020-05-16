@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_ATLAS_PW": "az12sx34",
+    "JWT_KEY": "qwertyuiop_lkjhgfdsa_zxcvbnm"
+  }
+
+}

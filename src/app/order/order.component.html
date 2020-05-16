@@ -1,0 +1,35 @@
+
+<div class="grad">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <a id="brand" [routerLink]="['/']">GoCart.com</a>
+      </div>
+      <hr>
+    <mat-spinner id="spin" *ngIf="isloading" id="spin"></mat-spinner>
+    <p class="h5" style="color: white;">Item in Ordered:</p>
+    <p class="h6 d-flex justify-content-center"style="color: white;" *ngIf="orders.length <= 0">No orders Yet!!!</p>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-xs-8 col-xl-8 ">
+        <mat-accordion multi="true">
+          <mat-expansion-panel *ngFor="let product of orders" style="width: 90%;">
+            <mat-expansion-panel-header>
+              <div style="width: 50%;text-align: left;">{{product.name}}</div>
+              <div style="width: 50%;text-align: right;margin-right: 1rem;">Rs.{{product.price}}</div>
+            </mat-expansion-panel-header>
+
+            <img [src]="product.image" alt="Photo">
+            <br>
+            <p>{{product.discription}}</p>
+            <p class="h6">Order placed {{product.ordered_on}}</p>
+            <hr>
+            <mat-action-row >
+              <button mat-raised-button color="warn" *ngIf="product.ordered_on === date"
+                (click)="delete(product)">Cancel</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+
+  </div>
+</div>

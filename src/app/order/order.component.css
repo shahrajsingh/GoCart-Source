@@ -1,0 +1,25 @@
+#spin {
+  margin: auto;
+}
+
+img{
+  height: 240px;
+  width: 240px;
+}
+
+.grad{
+  height: 100%;
+  background-color: #161618;
+  background-image: linear-gradient(#161618, white);
+}
+
+#brand{
+  font-family: Arial;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+}
+hr{
+  border: 1px solid white;
+  background-color: white;
+}

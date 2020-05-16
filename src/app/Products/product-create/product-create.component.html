@@ -1,0 +1,43 @@
+<div class="container-fluid" id=grad>
+  <div class="row d-flex justify-content-center">
+    <a class="navbar-brand" id="brand" routerLink="/">
+      <p>GoCart.Com</p>
+    </a>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4 col-xl-4 col-xs-4">
+      <mat-card>
+        <form [formGroup]="createProduct" (submit)="CreateProduct()">
+          <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input matInput type=text formControlName="name" placeholder="e.g:- Toy" required>
+            <mat-error *ngIf="createProduct.get('name').invalid">Enter a valid Name</mat-error>
+          </mat-form-field>
+          <br>
+          <div>
+            <button class="btn btn-outline-warning mr-2" type="button" id="btn1" (click)="filepicker.click()">Add Image</button>
+            <input type="file" #filepicker id="imgbtn" (change)="onimagepick($event)">
+            <div class="container-fluid d-flex justify-content-center">
+              <img [src]="imgprev" alt="createProduct.get.('name')" *ngIf="imgprev !=='' && imgprev">
+            </div>
+          </div>
+          <br>
+          <mat-form-field appearance="outline">
+            <textarea matInput formControlName='discription' rows="3" placeholder="Enter Product Discription">
+
+      </textarea>
+            <mat-error *ngIf="createProduct.get('discription').invalid">Plese enter a valid product Discription</mat-error>
+            <br>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter Price in Rs.</mat-label>
+            <input type="number" matInput formControlName="price"placeholder="e.g:-123" required>
+          </mat-form-field>
+          <button mat-raised-button color="accent" type="submit" id="button" *ngIf='mode === "create"'>Save</button>
+          <button mat-raised-button color="accent" type="submit" id="button" *ngIf='mode === "edit"'>Save Changes</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

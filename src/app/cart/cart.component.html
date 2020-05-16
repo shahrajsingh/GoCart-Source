@@ -1,0 +1,42 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="grad">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <a id="brand" [routerLink]="['/']">GoCart.com</a>
+      </div>
+      <hr>
+    <mat-spinner id="spin" *ngIf="isloading" id="spin"></mat-spinner>
+    <p class="h5" style="color: white;">Item in Cart:</p>
+    <p class="h6 d-flex justify-content-center"style="color: white;" *ngIf="products.length <= 0">No Products Added to cart!!!</p>
+    <div class="row">
+      <div class="col-md-8 col-xs-8 col-xl-8 ">
+        <mat-accordion multi="true">
+          <mat-expansion-panel *ngFor="let product of products" style="width: 90%;">
+            <mat-expansion-panel-header>
+              <div style="width: 50%;text-align: left;">{{product.name}}</div>
+              <div style="width: 50%;text-align: right;margin-right: 1rem;">Rs.{{product.price}}</div>
+            </mat-expansion-panel-header>
+
+            <img [src]="product.image" alt="Photo">
+            <br>
+            <p>{{product.discription}}</p>
+            <hr>
+            <mat-action-row class="d-flex justify-content-end">
+              <button mat-raised-button color="warn" class="material-icons" style="height: 40px;width: 2rem;"
+                (click)="delete(product)">delete</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div class="col-md-4 col-xs-4 col-xl-4" *ngIf="products.length > 0">
+        <div class="row" style="height: 80%;text-align: right;">
+          <p class="h5" style="color: white;">Cart Total: Rs {{price}}</p>
+        </div>
+        <div class="row">
+          <button mat-raised-button color="accent" style="width: 100%;" (click)="placeorder()">Place Order</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

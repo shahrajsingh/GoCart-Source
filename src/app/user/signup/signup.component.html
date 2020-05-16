@@ -1,0 +1,46 @@
+
+<div class="container-fluid" id="grad">
+  <br>
+  <div class="row d-flex justify-content-center">
+    <a id="brand" [routerLink]="['/']">GoCart.com</a>
+    </div>
+    <br>
+    <div class="row d-flex justify-content-center">
+      <mat-card class="col-md-4 col-xs-4 col-xl-4">
+        <p class="h3" *ngIf='mode === "create"'>Signup</p>
+        <p class="h3" *ngIf='mode === "edit"'>Details</p>
+        <form #signupform = "ngForm" name="signupform" (submit)="signup(signupform)">
+          <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>Enter Name</mat-label>
+            <input matInput placeholder="e.g:-John Doe" type="email" required name="name" [ngModel]="user.name" #name = "ngModel">
+            <mat-error *ngIf="name.invalid">enter a valid Name</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>Enter Email</mat-label>
+            <input matInput placeholder="e.g:-someone@email.com" type="email" required name="email" [ngModel]="user.email" #email = "ngModel">
+            <mat-error *ngIf="email.invalid">enter a valid email</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Enter Password</mat-label>
+            <input matInput 
+            placeholder="password must contain alphabets and numbers"
+            name="password" #password="ngModel"
+            [ngModel]="user.password" required type="password">
+            <mat-error *ngIf="password.invalid">enter a valid password</mat-error>
+          </mat-form-field>
+          <br>
+          <div class="d-flex justify-content-center">
+            <button mat-raised-button type="submit" color="accent" *ngIf='mode === "create"'>Create Account</button>
+            <button mat-raised-button type="submit" color="accent" *ngIf='mode === "edit"'>Save Changes</button>
+          </div>
+        </form>
+        <br>
+        <button mat-raised-button color="warn" (click)="delete()" *ngIf='mode === "edit"'>Delete Account</button>
+        <hr>
+        <p class="h6">Already have a GoCart Account?</p>
+        <button mat-raised-button [routerLink]="['/login']">Login to GoCart</button>
+      </mat-card>
+    </div>
+</div>
